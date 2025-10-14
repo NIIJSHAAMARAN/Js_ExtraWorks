@@ -1,0 +1,47 @@
+<!-- You are creating a simple game result generator for a beginner-level web game.
+Create a script that:
+Randomly picks a number between 1 and 50 (representing a mystery level).
+Takes a user input score (as a string, e.g., "45") and converts it into a number.
+Shows the absolute difference between the mystery level and the user's score.
+Calculates and logs the square root of the user’s score.
+Logs the value of Pi (?) using a math property.
+Uses implicit conversion to multiply the string "20" by 5.
+Uses the Math.max() and Math.min() methods to display the highest and lowest values among 10, 20, and the mystery level. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="maxValue"></p>
+    <p id="minValue"></p>
+   <script type="text/javascript">
+    let val=Math.floor(Math.random()*50)+1;
+     let userScore="45";
+     let cVal=Number(userScore);
+     let diff=Math.abs(val-cVal);
+     let sqrtVal=Math.round(Math.sqrt(cVal))
+     let constPival=Math.PI;  
+     let res="20"*5;  
+    let highest = Math.max(10, 20,val);
+    let lowest = Math.min(10, 20,val);
+    document.getElementById("demo").innerHTML=`Random Number:${val}`;
+     document.getElementById("demo1").innerHTML=`User Score:${cVal}`;
+     document.getElementById("demo2").innerHTML=`Differnce(rNum &user score) :${diff}`;
+     document.getElementById("demo3").innerHTML=`Rounded Square root:${sqrtVal}`;
+     document.getElementById("demo4").innerHTML=`pi value:${constPival}`;
+     document.getElementById("demo5").innerHTML=`"50"*2=${res}`;
+      document.getElementById("maxValue").innerHTML = `Highest among (10, 20,${val} ${highest}`;
+    document.getElementById("minValue").innerHTML = `Lowest among (10, 20),${val}: ${lowest}`;
+   
+   </script> 
+</body>
+</html>
