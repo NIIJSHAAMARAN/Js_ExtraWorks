@@ -1,0 +1,100 @@
+<!-- You are working on a simple "Student Result Dashboard" for a school's internal website. You are given an array of student objects where each student has a name and score. Your tasks are:
+
+List all student names.
+
+Create a new array that shows only the names of students who scored more than 60.
+
+Find the total score of all students.
+
+Check if all students passed (score > 35).
+
+Check if at least one student scored more than 90.
+
+Sort the students by their score in descending order and display their names along with scores. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5>Object Name values</h5>
+    <p id="display2"></p>
+    <h5>score>60</h5>
+    <p id="display"></p>
+    <h5>Total Score</h5>
+    <p id="display3"></p>
+    <h5>Result</h5>
+    <p id="result"></p>
+    <p id="moreThan90"></p>
+    <h5>students Sorted by score</h5>
+    <p id="resultArray"></p>
+    <script type="text/javascript">
+     var students=[{name:"Chikku",score:95},{name:"meera",score:45},{name:"sara",score:65},{name:"gopan",score:40}];
+     var newArr=[],text,arrname,text1=0,c=0,flag=0,resultArray;
+     arrname="<ul>";
+     for(var i=0;i<students.length;i++)
+    {
+        arrname+="<li>"+students[i].name+"</li>";
+    }
+    arrname+="</ul>";
+    document.getElementById("display2").innerHTML=arrname;
+    for(var i=0;i<students.length;i++)
+    {
+        if(students[i].score>60)
+        {
+            newArr.push(students[i].name);
+        }
+    } 
+    text="<ul>";
+    for (var i=0;i<newArr.length;i++)
+    {
+        text+="<li>"+(newArr[i])+"</li>";
+    }
+    text+="</ul>";
+    document.getElementById("display").innerHTML=text;
+     
+    for (var i=0;i<students.length;i++)
+    {
+        text1+=students[i].score;
+    }
+    
+    document.getElementById("display3").innerHTML=text1;
+  
+    for (var i=0;i<students.length;i++)
+    {
+        if(students[i].score>35)
+        {
+            c+=1;
+        }
+    }
+    if(c==students.length)
+    {
+        document.getElementById("result").innerHTML="All students Passed";
+    }
+    for (var i=0;i<students.length;i++)
+    {
+        if(students[i].score>90)
+        {
+           flag=1;
+           break; 
+        }
+    }
+    if(flag)
+    {
+        document.getElementById("moreThan90").innerHTML="student scored more than 90";
+    }
+    students.sort(function(a,b){return(b.score-a.score)});
+
+     resultArray="<ul>";
+    students.forEach(student => {
+    resultArray += `<li>${student.name} - ${student.score}</li>`;
+});
+    resultArray+="</ul>";
+    document.getElementById("displayResult").innerHTML=resultArray;
+    </script>
+    
+</body>
+</html>

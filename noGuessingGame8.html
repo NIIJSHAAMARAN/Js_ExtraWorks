@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hw js day 8</title>
+</head>
+<body>
+    <h2>Number Guessing Game</h2>
+    <script>
+        let chances = 0; 
+
+        while (chances < 5) {
+
+            let guess = parseInt(prompt("Enter a number between 1 and 5:"));
+
+            if (guess < 1 || guess > 5 || isNaN(guess)) {
+                alert("Invalid input");
+                continue; 
+            }
+
+
+            let numberInWords = "";
+            switch(guess) {
+                case 1:
+                    numberInWords = "One";
+                    break;
+                case 2:
+                    numberInWords = "Two";
+                    break;
+                case 3:
+                    numberInWords = "Three";
+                    break;
+                case 4:
+                    numberInWords = "Four";
+                    break;
+                case 5:
+                    numberInWords = "Five";
+                    break;
+            }
+            alert(`You entered: ${numberInWords}`);
+
+            if (guess === 3) {
+                alert("You guessed it right!");
+                break; 
+            } else {
+                alert("Wrong guess. Try again.");
+            }
+
+            chances++;
+        }
+
+        if (chances === 5) {
+            alert("Game over");
+        }
+    </script>
+</body>
+</html>
